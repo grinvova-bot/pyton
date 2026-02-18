@@ -1,43 +1,12 @@
-# Python
-__pycache__/
+﻿__pycache__/
 *.pyc
-*.pyo
-*.pyd
-.Python
-*.egg-info/
-.eggs/
-
-# PyInstaller
 build/
 dist/
 *.spec
-
-# IDE
 .vscode/
 .idea/
-*.swp
-*.swo
-
-# Временные файлы
-*.log
-.env
-.venv
-venv/
-
-# Output файлы
 *.xlsx
 !price_project/templates_excel/*.xlsx
 !price_project/data/*.xlsx
-!Griin/*.xlsx
-
-# Тестовые данные
 prices.csv
 products.csv
-test_result.xlsx
-
-# Прочее
-$null
-*.ini
-echo/
-done/
-uploads/
