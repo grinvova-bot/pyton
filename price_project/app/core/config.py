@@ -1,0 +1,53 @@
+"""
+Конфигурация приложения
+"""
+import os
+from pathlib import Path
+
+# Базовая директория
+BASE_DIR = Path(__file__).resolve().parent.parent
+PROJECT_ROOT = BASE_DIR.parent
+
+# Директории для файлов
+UPLOAD_DIR = BASE_DIR / "uploads"
+OUTPUT_DIR = BASE_DIR / "output"
+
+# Создаем директории если не существуют
+UPLOAD_DIR.mkdir(exist_ok=True)
+OUTPUT_DIR.mkdir(exist_ok=True)
+
+# Директория с шаблонами Excel
+TEMPLATES_EXCEL_DIR = PROJECT_ROOT / "templates_excel"
+DEFAULT_TEMPLATE = TEMPLATES_EXCEL_DIR / "Temlate2-color.xlsx"
+
+# Максимальный размер файла (10MB)
+MAX_FILE_SIZE = 10 * 1024 * 1024
+
+# Время хранения файлов (часов)
+FILE_RETENTION_HOURS = 24
+
+# Настройки маркеров по умолчанию
+DEFAULT_MARKERS = {
+    "К2": 30,
+    "К3": 40,
+    "К4": None,  # Особый маркер, цена не пересчитывается
+}
+
+# Маппинг статусов
+STATUS_MAPPING = {
+    # Новый -> пусто
+    "новый": "",
+    "new": "",
+    "новинка": "",
+    
+    # Распродажа (учитываем варианты написания)
+    "ограниченно годен": "РАСПРОДАЖА",
+    "ограничено годен": "РАСПРОДАЖА",
+    "ограниченный срок": "РАСПРОДАЖА",
+    "срок годности истекает": "РАСПРОДАЖА",
+    "брак": "РАСПРОДАЖА",
+    "уценка": "РАСПРОДАЖА",
+    "распродажа": "РАСПРОДАЖА",
+    "sale": "РАСПРОДАЖА",
+    "акция": "РАСПРОДАЖА",
+}
